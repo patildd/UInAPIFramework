@@ -6,11 +6,11 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class FirefoxBrowser implements Browser{
 
-        @Override
+    @Override
         public WebDriver getDriver() {
             FirefoxOptions options  = new FirefoxOptions();
             options.addArguments("--incognito");
-            options.addArguments("--headless");
+           //options.addArguments("--headless");
             options.addArguments("--start-maximized");
             return (new FirefoxDriver(options));
         }

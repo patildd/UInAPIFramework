@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class WebDriverFactory{
 
-    Browser getWebDriver(String browserType)
+    public static Browser getBrowser(String browserType)
     {
         switch (browserType.trim().toLowerCase())
         {
@@ -17,5 +17,6 @@ public class WebDriverFactory{
             default:
                 throw new IllegalArgumentException(" Invalid browser type:" + browserType);
         }
+
     }
 }
