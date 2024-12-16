@@ -3,9 +3,13 @@ package org.example;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import org.example.DriverFactory.Browser;
+import org.example.DriverFactory.WebDriverFactory;
+
+import org.example.Utils.RetryListner;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 
 /**
@@ -16,11 +20,12 @@ public class AppTest {
     /**
      * Rigorous Test :-)
      */
-    @Test
+    @Test(retryAnalyzer = RetryListner.class)
     public void shouldAnswerWithTrue() {
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
+
+        Browser browser =  WebDriverFactory.getBrowser("edge");
+        WebDriver driver =  browser.getDriver();
         driver.get("https://google.com");
         System.out.println("Title"+ driver.getTitle());
 
